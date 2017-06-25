@@ -8,6 +8,7 @@ def evaluation_new(request):
         form = EvaluationForm(request.POST)
         if form.is_valid():
             form.save()
+            form.send_all_emails_with_evaluation()
             return render(request, 'evaluation/show.html', {'email': form.instance.email})
     else:
         form = EvaluationForm()

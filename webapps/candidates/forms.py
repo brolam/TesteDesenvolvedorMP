@@ -1,5 +1,10 @@
 from django.forms import ModelForm
 from candidates.models import Evaluation
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.core.mail import EmailMultiAlternatives
+from webapps import settings
+from django.utils.translation import ugettext as _
 
 class EvaluationForm(ModelForm):
 	class Meta:
@@ -16,3 +21,20 @@ class EvaluationForm(ModelForm):
 		 'skill_tec_ios_rating', 
 		 'skill_tec_android_rating' 
 		 ]
+
+	def send_all_emails_with_evaluation(self):
+		if self.instance.is_development_front_end(): self.send_one_email_with_evaluation(_("Front-End"))
+		if self.instance.is_development_back_end(): self.send_one_email_with_evaluation(_("Back-End")) 
+		if self.instance.is_development_mobile(): self.send_one_email_with_evaluation(_("Mobile")) 
+		if self.instance.is_development_generic(): self.send_one_email_with_evaluation("")
+
+	def send_one_email_with_evaluation(self, development_title):
+		from_email = settings.ADMINS[0][1]
+		to_email = self.instance.email
+		subject = _("Thank you for applying")
+		parames = { 'subject': subject, 'developer_title': development_title}
+		html_content = render_to_string('evaluation/email.html', parames)
+		text_content = strip_tags(html_content)
+		msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+		msg.attach_alternative(html_content, "text/html")
+		msg.send()

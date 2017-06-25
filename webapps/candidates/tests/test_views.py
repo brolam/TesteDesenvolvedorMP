@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.test import Client
 from candidates.models import Evaluation
+from django.core import mail
+from django.utils.translation import ugettext as _
 
 class EvaluationViewTest(TestCase):
     def setUp(self):
@@ -59,7 +61,7 @@ class EvaluationViewTest(TestCase):
             if ( skill_tec_field.name.startswith( 'skill_tec_' ) ):
                 self.check_one_field_skill_tec_rating_greater_than_ten(skill_tec_field.name)
 
-    def test_submt_is_frontEnd_backEnd_and_mobile_developer(self):
+    def test_submit_is_frontEnd_backEnd_and_mobile_developer(self):
         params = { 
             'name': 'One Developer', 
             'email': 'cndidateEvaluation@mp.com',
@@ -79,8 +81,15 @@ class EvaluationViewTest(TestCase):
         self.assertEqual(evaluation.is_development_back_end(), True, 'Must be One Developer Back-End.')
         self.assertEqual(evaluation.is_development_mobile(), True, 'Must be One Developer Mobile.')
         self.assertEqual(evaluation.is_development_generic(), False, 'Must not be One Developer Generic.')
+        self.assertEqual(len(mail.outbox), 3, 'Three emails should be sent')
+        self.assertIn( _("Front-End"), mail.outbox[0].body )
+        self.assertIn( _("Back-End"), mail.outbox[1].body )
+        self.assertIn( _("Mobile"), mail.outbox[2].body )
+        # Empty the test outbox
+        mail.outbox = []
 
-    def test_submt_is_one_generic_developer(self):
+    
+    def test_submit_is_one_generic_developer(self):
         params = { 
             'name': 'One Developer Generic', 
             'email': 'cndidateEvaluation@mp.com',
@@ -100,5 +109,12 @@ class EvaluationViewTest(TestCase):
         self.assertEqual(evaluation.is_development_back_end(), False, 'Must not be One Developer Back-End.')
         self.assertEqual(evaluation.is_development_mobile(), False, 'Must not be One Developer Mobile.')
         self.assertEqual(evaluation.is_development_generic(), True, 'Must be One Developer Generic.')
+        self.assertEqual(len(mail.outbox), 1, 'Should send an email')
+        self.assertNotIn( _("Front-End"), mail.outbox[0].body )
+        self.assertNotIn( _("Back-End"), mail.outbox[0].body )
+        self.assertNotIn( _("Mobile"), mail.outbox[0].body )
+        # Empty the test outbox
+        mail.outbox = []
+  
 
 
