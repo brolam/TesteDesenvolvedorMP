@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 def home(request):
-	return HttpResponse("Hello Google AppEngine Django.")
+	return HttpResponseRedirect(reverse('candidates:evaluation_new'))

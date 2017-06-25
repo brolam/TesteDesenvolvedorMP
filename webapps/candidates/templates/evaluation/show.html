@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load attrsfilter %}
+{% block content %}
+{% load i18n %} 
+<div class="jumbotron">
+	<h2>
+		{% trans "Thank you, your evaluation has been successfully registered!" %}
+	</h2>
+	<p>
+		{% trans "Please check your e-mail" %} {{email}} {% trans "for the vacancies that you are competing for." %}
+	</p>
+	<p>
+	 	<a class="btn btn-lg btn-success" 
+			href="{% url 'candidates:evaluation_new' %}" role="button">{% trans "Redo the evaluation" %}</a>
+	</p>
+</div>
+{% endblock %}

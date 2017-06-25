@@ -2,7 +2,7 @@ from django.test import TestCase
 from candidates.models import Evaluation 
 from django.core.exceptions import ValidationError
 
-class CandidateEvaluationModelTest(TestCase):
+class EvaluationModelTest(TestCase):
     def setUp(self):
         self.evaluation = Evaluation(name="CandidateEvaluation", email="candidateEvaluation@mp.com")
 

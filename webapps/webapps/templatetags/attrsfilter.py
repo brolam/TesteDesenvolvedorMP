@@ -25,3 +25,9 @@ def form_button_radio(value, args):
 	params = {'name': value.name, 'value': str(args), 'checked': checked, 'cssClass': cssClass }
 	htmlStr = '<label class="{p[cssClass]}"><input type="radio" name="{p[name]}" value="{p[value]}" autocomplete="off"  {p[checked]} >{p[value]}</label>'
 	return mark_safe(htmlStr.format(p=params))
+
+@register.filter('startswith')
+def startswith(text, starts):
+    if isinstance(text, basestring):
+        return text.startswith(starts)
+    return False
