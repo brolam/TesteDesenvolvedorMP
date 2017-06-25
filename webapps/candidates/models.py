@@ -24,33 +24,33 @@ class Evaluation(models.Model):
 	skill_tec_javascript_rating = SkillTecRatingField( _("Javascript") )
 	skill_tec_python_rating = SkillTecRatingField( _("Python") )
 	skill_tec_django_rating = SkillTecRatingField( _("Django") )
-	skill_tec_ios_rating = SkillTecRatingField( _("Development iOS") )
-	skill_tec_android_rating = SkillTecRatingField( _("Development Android") )
+	skill_tec_ios_rating = SkillTecRatingField( _("Developer iOS") )
+	skill_tec_android_rating = SkillTecRatingField( _("Developer Android") )
 
-	def is_development_front_end(self):
+	def is_developer_front_end(self):
 		return (
 			7 <= self.skill_tec_html_rating <= 10 and 
 			7 <= self.skill_tec_css_rating <= 10 and
 			7 <= self.skill_tec_javascript_rating <= 10
 		)
 
-	def is_development_back_end(self):
+	def is_developer_back_end(self):
 		return (
 			7 <= self.skill_tec_python_rating <= 10 and 
 			7 <= self.skill_tec_django_rating <= 10
 		)
 
-	def is_development_mobile(self):
+	def is_developer_mobile(self):
 		return (
 			7 <= self.skill_tec_ios_rating <= 10 and 
 			7 <= self.skill_tec_android_rating <= 10
 		)
 
-	def is_development_generic(self):
+	def is_developer_generic(self):
 		return (
-			not self.is_development_front_end() and 
-			not self.is_development_back_end() and 
-			not self.is_development_mobile() 
+			not self.is_developer_front_end() and 
+			not self.is_developer_back_end() and 
+			not self.is_developer_mobile() 
 		)
 
  	def __unicode__(self):

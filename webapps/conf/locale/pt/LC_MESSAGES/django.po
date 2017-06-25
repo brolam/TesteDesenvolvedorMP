@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 10:43-0300\n"
+"POT-Creation-Date: 2017-06-25 12:21-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,3 +16,110 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: candidates/forms.py:26 candidates/tests/test_views.py:85
+#: candidates/tests/test_views.py:113
+msgid "Front-End"
+msgstr ""
+
+#: candidates/forms.py:27 candidates/tests/test_views.py:86
+#: candidates/tests/test_views.py:114
+msgid "Back-End"
+msgstr ""
+
+#: candidates/forms.py:28 candidates/tests/test_views.py:87
+#: candidates/tests/test_views.py:115
+msgid "Mobile"
+msgstr ""
+
+#: candidates/forms.py:34
+msgid "Thank you for applying"
+msgstr "Obrigado por se candidatar"
+
+#: candidates/models.py:10
+msgid "This skill rating should be between 1 and 10."
+msgstr "Essa classificação de habilidade deve estar entre 1 e 10."
+
+#: candidates/models.py:20
+msgid "name"
+msgstr ""
+
+#: candidates/models.py:21
+msgid "email"
+msgstr ""
+
+#: candidates/models.py:22
+msgid "HTML"
+msgstr ""
+
+#: candidates/models.py:23
+msgid "CSS"
+msgstr ""
+
+#: candidates/models.py:24
+msgid "Javascript"
+msgstr ""
+
+#: candidates/models.py:25
+msgid "Python"
+msgstr ""
+
+#: candidates/models.py:26
+msgid "Django"
+msgstr ""
+
+#: candidates/models.py:27
+msgid "Developer iOS"
+msgstr "Desenvolvedor iOS"
+
+#: candidates/models.py:28
+msgid "Developer Android"
+msgstr "Desenvolvedor Android"
+
+#: candidates/templates/evaluation/email.html:29
+msgid "Thank you for applying, when we have a place available for programmer"
+msgstr "Obrigado por se candidatar, assim que tivermos uma vaga disponível para programador"
+
+#: candidates/templates/evaluation/email.html:29
+msgid "we will contact you."
+msgstr "entraremos em contato."
+
+#: candidates/templates/evaluation/email.html:31
+msgid "Redo Evaluation"
+msgstr "Refazer a avaliação"
+
+#: candidates/templates/evaluation/new.html:5
+msgid "Evaluate your skill from 0 to 10."
+msgstr "Avalie sua habilidade de 0 a 10."
+
+#: candidates/templates/evaluation/new.html:9
+msgid "New Evaluation"
+msgstr "Nova Avaliação"
+
+#: candidates/templates/evaluation/new.html:10
+msgid "Evaluation of candidates for the vacancy of developer."
+msgstr "Avaliação de candidatos para a vaga de desenvolvedor."
+
+#: candidates/templates/evaluation/new.html:13
+msgid "Candidate Information"
+msgstr "Dados do candidato"
+
+#: candidates/templates/evaluation/new.html:49
+msgid "Submit"
+msgstr "Enviar"
+
+#: candidates/templates/evaluation/show.html:7
+msgid "Thank you, your evaluation has been successfully registered!"
+msgstr "Obrigado, sua avaliação foi registrada com sucesso!"
+
+#: candidates/templates/evaluation/show.html:10
+msgid "Please check your e-mail"
+msgstr "Por favor, verifique seu email"
+
+#: candidates/templates/evaluation/show.html:10
+msgid "for the vacancies that you are competing for."
+msgstr "para saber as vagas que você está competindo."
+
+#: candidates/templates/evaluation/show.html:14
+msgid "Redo the evaluation"
+msgstr "Refazer a avaliação"

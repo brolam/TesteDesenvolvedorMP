@@ -25,8 +25,9 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>{{subject}}</h1>
-        <p class="lead">{% trans "Thank you for applying, when we have a place available for programmer" %} {{developer_title}} {% trans "we will contact you." %}</p>
+        <h4>{{name}}</h4>
+        <p class="lead">{% trans "Thank you for applying, when we have a place available for programmer" %} 
+        <strong>{{developer_title}}</strong> {% trans "we will contact you." %}</p>
         <p><a class="btn btn-lg btn-success" href="https://candidatesmp.appspot.com/candidates/evaluation/new" 
         role="button">{% trans "Redo Evaluation" %}</a></p>
       </div>
