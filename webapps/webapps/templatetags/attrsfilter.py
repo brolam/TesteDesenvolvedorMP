@@ -23,7 +23,7 @@ def form_button_radio(value, args):
 	checked = 'checked' if isCheckBoxSelected else ''
 	cssClass = 'btn btn-primary active' if isCheckBoxSelected else 'btn btn-primary'
 	params = {'name': value.name, 'value': str(args), 'checked': checked, 'cssClass': cssClass }
-	htmlStr = '<label class="{p[cssClass]}"><input type="radio" name="{p[name]}" value="{p[value]}" autocomplete="off"  {p[checked]} >{p[value]}</label>'
+	htmlStr = '<label class="{p[cssClass]}"><input type="radio" id="{p[name]}_{p[value]}" name="{p[name]}" value="{p[value]}" autocomplete="off"  {p[checked]} >{p[value]}</label>'
 	return mark_safe(htmlStr.format(p=params))
 
 @register.filter('startswith')

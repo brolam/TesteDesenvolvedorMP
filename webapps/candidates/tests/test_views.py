@@ -64,7 +64,7 @@ class EvaluationViewTest(TestCase):
     def test_submit_is_frontEnd_backEnd_and_mobile_developer(self):
         params = { 
             'name': 'One Developer', 
-            'email': 'cndidateEvaluation@mp.com',
+            'email': 'candidateEvaluation@mp.com',
             'skill_tec_html_rating': 7, 
             'skill_tec_css_rating': 7, 
             'skill_tec_javascript_rating': 7, 
@@ -76,7 +76,7 @@ class EvaluationViewTest(TestCase):
         self.assertContains(response, _('Thank you, your evaluation has been successfully registered!') )
         evaluation = candidateEvaluation = Evaluation.objects.get(name="One Developer")
         self.assertEqual(evaluation.name, 'One Developer')
-        self.assertEqual(evaluation.email, 'cndidateEvaluation@mp.com')
+        self.assertEqual(evaluation.email, 'candidateEvaluation@mp.com')
         self.assertEqual(evaluation.is_developer_front_end(), True, 'Must be One Developer Front-End.')
         self.assertEqual(evaluation.is_developer_back_end(), True, 'Must be One Developer Back-End.')
         self.assertEqual(evaluation.is_developer_mobile(), True, 'Must be One Developer Mobile.')
@@ -92,7 +92,7 @@ class EvaluationViewTest(TestCase):
     def test_submit_is_one_generic_developer(self):
         params = { 
             'name': 'One Developer Generic', 
-            'email': 'cndidateEvaluation@mp.com',
+            'email': 'candidateEvaluation@mp.com',
             'skill_tec_html_rating': 7, 
             'skill_tec_css_rating': 6, 
             'skill_tec_javascript_rating': 7, 
@@ -104,7 +104,7 @@ class EvaluationViewTest(TestCase):
         self.assertContains(response, _('Thank you, your evaluation has been successfully registered!'))
         evaluation = candidateEvaluation = Evaluation.objects.get(name="One Developer Generic")
         self.assertEqual(evaluation.name, 'One Developer Generic')
-        self.assertEqual(evaluation.email, 'cndidateEvaluation@mp.com')
+        self.assertEqual(evaluation.email, 'candidateEvaluation@mp.com')
         self.assertEqual(evaluation.is_developer_front_end(), False, 'Must not be One Developer Front-End.')
         self.assertEqual(evaluation.is_developer_back_end(), False, 'Must not be One Developer Back-End.')
         self.assertEqual(evaluation.is_developer_mobile(), False, 'Must not be One Developer Mobile.')
