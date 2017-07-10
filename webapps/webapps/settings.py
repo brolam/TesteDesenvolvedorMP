@@ -7,7 +7,13 @@ from django.utils.translation import ugettext_lazy as _
 SECRET_KEY = 'fn0=p=qk=&2$b)9lv5-elmn7vbb!eq=$o%_t&_qc83vw3_w_-6'
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "webapps.settings")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EMAIL_BACKEND = 'appengine_emailbackend.EmailBackend'
+
+if (os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine') or
+    os.getenv('SETTINGS_MODE') == 'prod'):
+    EMAIL_BACKEND = 'appengine_emailbackend.EmailBackend'
+else: 
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 ADMINS = (
