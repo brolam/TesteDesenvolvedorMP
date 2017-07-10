@@ -25,6 +25,7 @@ class EvaluationAcceptanceTest(StaticLiveServerTestCase):
         self.selenium.find_element_by_id("skill_tec_css_rating_7").click()
         self.selenium.find_element_by_id("skill_tec_javascript_rating_7").click()
         self.selenium.find_element_by_id("button_submit").click()
+        self.selenium.find_elements_by_xpath('//h2[contains(text(), "Obrigado")]')
 
     def test_submit_back_end_developer(self):
         self.selenium.get('%s%s' % (self.live_server_url, self.evaluation_new_url))
@@ -34,6 +35,8 @@ class EvaluationAcceptanceTest(StaticLiveServerTestCase):
         email_input.send_keys('candidateEvaluation@mp.com')
         self.selenium.find_element_by_id("skill_tec_python_rating_7").click()
         self.selenium.find_element_by_id("skill_tec_django_rating_7").click()
+        self.selenium.find_element_by_id("button_submit").click()
+        self.selenium.find_elements_by_xpath('//h2[contains(text(), "Obrigado")]')
  
     def test_submit_mobile_developer(self):
         self.selenium.get('%s%s' % (self.live_server_url, self.evaluation_new_url))
@@ -44,6 +47,7 @@ class EvaluationAcceptanceTest(StaticLiveServerTestCase):
         self.selenium.find_element_by_id("skill_tec_ios_rating_7").click()
         self.selenium.find_element_by_id("skill_tec_android_rating_7").click()
         self.selenium.find_element_by_id("button_submit").click()
+        self.selenium.find_elements_by_xpath('//h2[contains(text(), "Obrigado")]')
 
     def test_submit_generic_developer(self):
         self.selenium.get('%s%s' % (self.live_server_url, self.evaluation_new_url))
@@ -59,6 +63,7 @@ class EvaluationAcceptanceTest(StaticLiveServerTestCase):
         self.selenium.find_element_by_id("skill_tec_ios_rating_6").click()
         self.selenium.find_element_by_id("skill_tec_android_rating_7").click()
         self.selenium.find_element_by_id("button_submit").click()
+        self.selenium.find_elements_by_xpath('//h2[contains(text(), "Obrigado")]')
 
 
 
