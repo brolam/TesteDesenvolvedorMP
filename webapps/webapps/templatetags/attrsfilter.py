@@ -18,13 +18,16 @@ def  url_query(value):
 	return  u'?%s' % (value) if value else '' 
 
 @register.filter(name='form_button_radio')
-def form_button_radio(value, args):
-	isCheckBoxSelected = (str(value.data) == str(args))
+def form_button_radio(value, item):
+	isCheckBoxSelected = (str(value.data) == str(item)) or is_form_button_radio_none( value.data, item )
 	checked = 'checked' if isCheckBoxSelected else ''
 	cssClass = 'btn btn-primary active' if isCheckBoxSelected else 'btn btn-primary'
-	params = {'name': value.name, 'value': str(args), 'checked': checked, 'cssClass': cssClass }
+	params = {'name': value.name, 'value': str(item), 'checked': checked, 'cssClass': cssClass }
 	htmlStr = '<label class="{p[cssClass]}"><input type="radio" id="{p[name]}_{p[value]}" name="{p[name]}" value="{p[value]}" autocomplete="off"  {p[checked]} >{p[value]}</label>'
 	return mark_safe(htmlStr.format(p=params))
+
+def is_form_button_radio_none(value, item):
+	return ( value == None  and item == 0 )
 
 @register.filter('startswith')
 def startswith(text, starts):
